@@ -1,4 +1,5 @@
 body {
     background-image: url("https://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/2/new-york-city-nyc-skyline-midtown-manhattan-at-night-black-and-white-jon-holiday.jpg?&targetx=-400&targety=0&imagewidth=1500&imageheight=500&modelwidth=700&modelheight=500&backgroundcolor=545454&orientation=0");
+    object-fit: fill;
     color: whitesmoke;
 }
