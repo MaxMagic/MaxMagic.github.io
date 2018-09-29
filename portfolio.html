@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body>
+    <!-- First page: Header with what looks like a div and the position
+    property. Center div with h1, horizontal line, picture with 3 paragraphs flowing
+    around it. Central div does not reach bottom of page. Fixed footer at the bottom of page with teal top margin
+    links to other pages "About" "Portfolio" and "Contact" are right justified, most
+    likely 3 separate divs with a bolded or colored single margin. Grey
+    backgound to body. White background to central div. Small "copyright" and icon in footer. Footer 
+    is a gunmetal grey. It appears that all pages will have the same base with center divs of differing sizes.-->
+    
+    <header>
+        <!-- Will need to have 4 divs that are links that live here. 
+        The first div will be Your Name situated above the upper left 
+        of the center div. Three smaller divs will have to right justified here. -->
+        
+        <div class="name_box">Your Name</div>
+
+        <div class="link_box">
+            <a href="index.html">About</a>
+            <a class="link_style" href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        
+    </header>
+
+    <div class="first_page">
+
+        <!-- Possible child div here to account for img and p elements. Set
+        them to either flex or inline-block -->
+        <section>
+            <h1>
+                Portfolio
+            </h1>
+            
+            <hr/>
+
+            <div class="inner_block">
+            
+                <div class="new_grid">
+                    <div class="div_adjust">
+                        <img src="https://picsum.photos/150/?random" alt="Random Pic">
+                        <div class="banners">
+                            Hangman
+                        </div> 
+                    </div>
+                     
+                    <div class="div_adjust">
+                        <img src="https://picsum.photos/150/?random">
+                        <div class="banners">
+                            RPG Game
+                        </div>
+                    </div>
+                    
+                    <div class="div_adjust">
+                        <img src="https://picsum.photos/150/?random">
+                        <div class="banners">
+                            Trivia Game
+                        </div>
+                    </div>
+
+                    <div class="div_adjust">
+                        <img src="https://picsum.photos/150/?random">
+                        <div class="banners">
+                            Columbia Info Widget
+                        </div>
+                            
+                    </div>
+
+                    <div class="div_adjust">
+                        <img src="https://picsum.photos/150/?random">
+                        <div class="banners">
+                            Rock Paper Scissors
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    <footer>
+        <p class="p_foot">
+            Copyright&#xa9;
+        </p> 
+    </footer>
+</body>
+</html>
