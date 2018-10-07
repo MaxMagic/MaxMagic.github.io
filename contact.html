@@ -1,73 +1,87 @@
 <!DOCTYPE html>
-<html lang="zxx">
-<head>
-    <meta charset="utf-8" />
-    <title>Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/> -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-</head>
-<body>
-    <!-- First page: Header with what looks like a div and the position
-    property. Center div with h1, horizontal line, picture with 3 paragraphs flowing
-    around it. Central div does not reach bottom of page. Fixed footer at the bottom of page with teal top margin
-    links to other pages "About" "Portfolio" and "Contact" are right justified, most
-    likely 3 separate divs with a bolded or colored single margin. Grey
-    backgound to body. White background to central div. Small "copyright" and icon in footer. Footer 
-    is a gunmetal grey. It appears that all pages will have the same base with center divs of differing sizes.-->
-    
-    <header>
-        <!-- Will need to have 4 divs that are links that live here. 
-        The first div will be Your Name situated above the upper left 
-        of the center div. Three smaller divs will have to right justified here. -->
-        
-        <div class="name_box">Your Name</div>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <div class="link_box">
-            <a href="index.html">About</a>
-            <a class="link_style" href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact</a>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>Basic Portfolio</title>
+  </head>
+  <body>
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="d-flex navbar navbar-light bg-light fix_pad">
+                <div class="container col-md-12 ml-5 pl-4 align-self-stretch">
+                    <div class="col-md-5 name_box align-self-stretch pl-4 ml-5">                        <div class="h5 mb-0 font-weight-bold fix_name pl-2 ml-5">
+                        Your Name
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <ul class="nav mr-5 pr-5">
+                        <li class="nav-item">
+                        <a class="nav-link" href="index.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        
-    </header>
-
-    <div class="first_page">
-
-        <!-- Will need 3 text entry fields: 2 of similar size for Name and Email
-        and a larger box for message entry. Also a connected "Submit" button -->
-        <section>
-            <h1>
-                Contact
-            </h1>
-            
-            <hr/>
-
-            <form class="inner_block">
-                <div>
-                    <p class="form_format">Name</p><br>
-                    <input type="text" name="Name" size="25"><br>
-                </div>
-                <br>
-                <div>
-                    <p class="form_format">Email</p><br>
-                    <input type="email" name="Email Address" size="25"><br>
-                </div>
-                <br>
-                <div>
-                    <p class="form_format">Message</p><br>
-                    <textarea name="Message" size="25"></textarea><br>
-                </div>
-                <br>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-
-
     </div>
-    <footer>
-        <p class="p_foot">
-            Copyright&#xa9;
-        </p> 
-    </footer>
-</body>
+      
+
+        <div class="container mt-5">
+            <div class="row d-flex col-md-10 f_row c_div">
+                <div class="row w-100 pl-5 pr-5">
+                    <div class="col-md-12 t_box mt-5">
+                        <p>Contact</p><hr>
+                    </div>
+                </div>
+                <div class="row w-100">
+                    <div class="col-md-12 pl-5 pr-5 mb-5">
+                        <form action="/action_page.php">
+                            <div class="form-group">
+                                <label for="usr">Name</label>
+                                <input type="text" class="form-control" id="usr">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Message</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <footer class="footer foot_buffer w-100">
+            <div class="container">
+              <span class="text-muted">
+                Copyright&#169;
+              </span>
+  
+            </div>
+  
+        </footer>
+  </body>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </html>

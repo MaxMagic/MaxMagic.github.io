@@ -1,0 +1,148 @@
+.name_box {
+    background-color: #4aaaa5;
+    font-family: 'Georgia', Times, "Times New Roman", serif;
+    font-weight: bold;
+    color: white;
+}
+
+.fix_pad {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 10vh;
+    border-bottom: solid 2px #cccccc;
+}
+
+.top_buffer {
+    margin-top: 30px;
+}
+
+.foot_buffer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background-color: #666666;
+    border-top: #4aaaa5;
+    border-top-style: solid;
+    border-top-width: 5px;
+    text-align: center;
+    font-size: 10px;
+    color: #cccccc;
+    width: 100%;
+    height: 5vh;
+}
+
+body {
+    background-image: url("../images/gravel.png");
+}
+
+a:link {
+    color: #cccccc;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #cccccc;
+}
+
+a:hover {
+    color: #4aaaa5;
+}
+
+a:active {
+    color: #cccccc;
+}
+
+.link_style {
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+}
+
+.t_box {
+    color: #4aaaa5;
+    font-family: 'Georgia', Times, "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.f_row {
+    background-color: white;
+    border: solid 2px #cccccc;
+    position: relative;
+    top: 50px;
+}
+
+.p_row {
+    background-color: white;
+}
+
+.fix_name {
+    position: absolute;
+    top: 3.5vh;
+    font-size: 3vh;
+}
+
+.c_div {
+    margin: auto;
+}
+
+h6 {
+    font-family: 'Georgia', Times, "Times New Roman", serif;
+    position: relative;
+    top: -80px;
+    max-width: 250px;
+    padding: 15px;
+    margin-bottom: 0;
+    font-weight: 300;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    background: #4aaaa5;
+    border-bottom: 0;
+
+}
+
+/* #masthead {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    overflow: auto;
+    color: #ffffff;
+    background: #ffffff;
+    border-bottom: 2px solid #cccccc;
+  }
+  
+  #logo {
+    float: left;
+    width: 200px;
+    height: 50px;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 50px;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    background: #4aaaa5;
+  }
+  
+  nav {
+    float: right;
+    margin-top: 15px;
+  }
+  
+  nav a {
+    display: inline-block;
+    padding-left: 15px;
+    margin-left: 15px;
+    line-height: 18px;
+    color: #999;
+    text-decoration: none;
+    border-left: 1px solid #efefef;
+  }
+  
+  nav a:first-child {
+    border-left: 0 none;
+  }
+   */
