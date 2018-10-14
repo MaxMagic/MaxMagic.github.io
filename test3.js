@@ -43,13 +43,13 @@ function newFunction(word, guess){
         displaySet.splice(position, 1, guess);
         var dElement = document.getElementById("guess_area");
         dElement.innerText = displaySet;
-        checkGame(word, displaySet);
+        check_game(word, displaySet);
         if (word.indexOf(guess, position + 1)){
             var position2 = word.indexOf(guess,position + 1);
             displaySet.splice(position2, 1, guess);
             var dElement = document.getElementById("guess_area");
             dElement.innerText = displaySet;
-            checkGame(word, displaySet);
+            check_game(word, displaySet);
         } else {
             return;
         }
@@ -78,6 +78,71 @@ function checkGame (word, dSet){
     }
 }
 
+function check_game (word, dSet){
+    if (word.toString() == dSet.toString()){
+        winCount++;
+        var winElement = document.getElementById("wins");
+        winElement.innerText = winCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Win!";
+    } else if (word.toString() != dSet.toString() && turnCount >= 10){
+        lossCount++;
+        var lossElement = document.getElementById("losses");
+        lossElement.innerText = lossCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Lose! Press Start Game to play Again!";
+    } else {
+        return;
+    }
+}
+
+function arraysEqual(word, dSet) {
+    if (word === dSet) return true;
+    if (word == null || dSet == null) return false;
+    if (word.length != dSet.length) return false;
+  
+    // If you don't care about the order of the elements inside
+    // the array, you should sort both arrays here.
+    // Please note that calling sort on an array will modify that array.
+    // you might want to clone your array first.
+  
+    for (var i = 0; i < word.length; ++i) {
+      if (word[i] !== dSet[i]) {
+        lossCount++;
+        var lossElement = document.getElementById("losses");
+        lossElement.innerText = lossCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Lose! Press Start Game to play Again!";
+        return false;
+    } else {
+        winCount++;
+        var winElement = document.getElementById("wins");
+        winElement.innerText = winCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Win!";
+        return true;
+    }
+    } 
+}
+
+  function winGame (word, dSet){
+      if (_.isEqual(word, dSet)){
+        winCount++;
+        var winElement = document.getElementById("wins");
+        winElement.innerText = winCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Win!";
+      }
+      if (_.isEqual(word, dSet) = false && turnCount >= 10){
+        lossCount++;
+        var lossElement = document.getElementById("losses");
+        lossElement.innerText = lossCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Lose! Press Start Game to play Again!"; 
+      } else {
+          return;
+      }
+    }
 
 // if (word.includes(userGuess)){
             //     var position = word.indexOf(userGuess);
