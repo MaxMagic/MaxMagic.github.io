@@ -23,7 +23,7 @@ function playGame(word){
     document.onkeyup = function(event) {
         turnCount++;
         console.log('turn:', turnCount);
-        if (turnCount >= 10){
+        if (turnCount >= 11){
             return;
         } else { 
             var cElement  = document.getElementById("turns");
@@ -43,6 +43,10 @@ function newFunction(word, guess){
         displaySet.splice(position, 1, guess);
         var dElement = document.getElementById("guess_area");
         dElement.innerText = displaySet;
+        // var nElement = document.createElement("div");
+        var gElement = document.getElementById("guessed_letters");
+        // nElement.innerText = guess;
+        gElement.insertAdjacentText("afterbegin", guess);
         check_game(word, displaySet);
         if (word.indexOf(guess, position + 1)){
             var position2 = word.indexOf(guess,position + 1);
