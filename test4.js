@@ -9,7 +9,6 @@ var winCount = 0;
 var lossCount = 0;
 
 function startGame(){
-    var displaySet = [];
     var gameWord = words[Math.floor((Math.random() * 9) + 1)];
     var baseSet = gameWord.split('');
     for (var i = 0; i < baseSet.length; i++){
@@ -24,7 +23,7 @@ function playGame(word){
     document.onkeyup = function(event) {
         turnCount++;
         console.log('turn:', turnCount);
-        if (turnCount >= 11){
+        if (turnCount >= 10){
             return;
         } else { 
             var cElement  = document.getElementById("turns");
@@ -72,7 +71,7 @@ function checkGame (word, dSet){
             var lossElement = document.getElementById("losses");
             lossElement.innerText = lossCount;
             var wElement = document.getElementById("text_box");
-            wElement.innerText = "You Lose! Press Start Game to play Again!";
+            wElement.innerText = "You Lose! Refresh page to play Again!";
         } else {
             return;
         }
@@ -81,18 +80,17 @@ function checkGame (word, dSet){
 
 function check_game (word, dSet){
     if (word.toString() == dSet.toString()){
-        var wElement = document.getElementById("text_box");
-        wElement.innerText = "You Win!";
         winCount++;
         var winElement = document.getElementById("wins");
         winElement.innerText = winCount;
-        console.log(dSet);
-    } else if (word.toString() != dSet.toString() && turnCount >= 10){
         var wElement = document.getElementById("text_box");
-        wElement.innerText = "You Lose! Press Start Game to play Again!";
+        wElement.innerText = "You Win!";
+    } else if (word.toString() != dSet.toString() && turnCount >= 10){
         lossCount++;
         var lossElement = document.getElementById("losses");
         lossElement.innerText = lossCount;
+        var wElement = document.getElementById("text_box");
+        wElement.innerText = "You Lose! Press Start Game to play Again!";
     } else {
         return;
     }
@@ -140,38 +138,3 @@ function winGame (word, dSet){
         return;
     }
 }
-
-// function clearAll() {
-//     turnCount = 0;
-//     while (displaySet.length > 0) {
-//         displaySet.pop();
-//     }
-//     var winElement = document.getElementById("wins");
-//     winElement.innerHTML = '';
-//     var wElement = document.getElementById("text_box");
-//     wElement.innerHTML= '';
-//     var lossElement = document.getElementById("losses");
-//     lossElement.innerHTML = '';
-//     var dElement = document.getElementById("guess_area");
-//     dElement.innerText = '';
-//     var cElement  = document.getElementById("turns");
-//     cElement.innerHTML = '';
-//   }
-
-// if (word.includes(userGuess)){
-            //     var position = word.indexOf(userGuess);
-            //     displaySet.splice(position, 1, userGuess);
-            //     var dElement = document.getElementById("guess_area");
-            //     dElement.innerText = displaySet;
-            //     checkGame(word);
-            // } 
-            // if (word.includes(userGuess, position + 1)){
-            //     var newPosition = word.indexOf(userGuess,position + 1);
-            //     displaySet.splice(newPosition, 1, userGuess);
-            //     var dElement = document.getElementById("guess_area");
-            //     dElement.innerText = displaySet;
-            //     checkGame(word);
-            // } else {
-            //     var wElement = document.getElementById("text_box");
-            //     wElement.innerText = "Try Again!";
-            // }
