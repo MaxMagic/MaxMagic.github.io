@@ -44,10 +44,6 @@ Fight Game - Attack button functionality, movement of characters in response to 
 and random selection of attack power. 
 End Game - If HP after attack <= 0, char dies. */
 
-var playerChar;
-var cpuChar; 
-var enemyCount = 0;
-
 function player1(clicked_id){
     playerChar = characters[clicked_id];
 };
@@ -55,6 +51,10 @@ function player1(clicked_id){
 function player2(clicked_id){
     cpuChar = characters[clicked_id];
 };
+
+var playerChar;
+var cpuChar; 
+var enemyCount = 0;
 
 $("#attackButton").on("click", function(){
     if (playerChar === jar_jar){
@@ -110,7 +110,6 @@ function checkGame(playerChar, cpuChar){
         return;       
     } 
 }
-
 
 var anakin = {
     name: "Anakin Skywalker",
@@ -484,7 +483,7 @@ $(document).ready(function () {
         $("#mace_stats_r").show();
     });
     
-    
+});    
 
     // $("#attackButton").click(function(){
     //     $("#anakin_image_l").animate({left: "+=250px"}, "fast", function(){
@@ -503,18 +502,3 @@ $(document).ready(function () {
 //         $("#box").animate({height: "100px"});
 //     });
 // });
-
-// Functions:
-
-// Start Game - sets up field of play, displays characters, their HP and a background
-
-
-
-// Play Game - Lets player choose character and ememy. Ease char onto playing field
-/* Take player 1 and player 2 and perform calculation then show updated results*/
-
-
-
-// Fight Game - Attack button functionality, movement of characters in response to attack button 
-// and random selection of attack power. 
-// End Game - If HP after attack <= 0, char dies.
