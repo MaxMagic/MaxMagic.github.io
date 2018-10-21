@@ -1,3 +1,24 @@
+@font-face {
+    font-family: starJediSE;
+    src: url("fonts/StarJedi Special Edition.ttf");
+}
+@font-face {
+    font-family: deathStar;
+    src: url("fonts/Death Star.otf");
+}
+
+@keyframes attackLeft {
+    0%   {right: 0px;}
+    50%  {right: 250px;}
+    100% {right: 0px;}
+}
+
+@keyframes attackRight {
+    0%   {left: 0px;}
+    50%  {left: 250px;}
+    100% {left: 0px;}
+}
+
 #stage {
     top: 0;
     left: 0;
@@ -45,68 +66,81 @@
 
 body, html {
     height: 100%;
-    width: 100%;
 }
 #surface {
     background: url("../images/Backgrounds/moon_surface.png");
     background-repeat: no-repeat;
     height: 36%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     zoom: 2;
 
- }
+}
 
 #heading,
-#stats-l,
-#stats-r,
+#stats,
 #characterModels,
 #players,
 #attackButton,
 #newgameButton {
-    z-index: 8000;
+    z-index: 2000;
     color: gold;
 }
 
- #heading {
+#anakin_stats_l,
+#anakin_stats_r {
+    z-index: 8000;
+}
 
+ #heading {
+    font-family: 'Star Jedi', arial;
  }
 
- /* .stats {
+ #stats {
     white-space: pre;
- } */
+ }
 
  #characterModels {
-
+    font-size: 25px;
+    font-family: deathStar;
  }
 
  #players {
 
  }
 
+ #fight_message {
+    font-size: 80%;
+    color: white;
+    height: 50%;
+    z-index: 3000;
+    position: relative;
+    bottom: -160px;
+    overflow-y: scroll;
+    
+ }
+
  #attackButton {
     height: 50%;
+    z-index: 4000;
  }
 
  #newgameButton {
     height: 50%;
+    z-index: 4000;
  }
  #cModels {
-    height: 600px;
+    height: 400px;
     width: 100%;
     z-index: 3000;
  }
 
- .statRow {
-     z-index: 2100;
-     height: 50px;
- }
-
  #bottomRow {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 0;
+    z-index: 6000;
  }
 
  .playerBox {
@@ -123,7 +157,11 @@ body, html {
  }
 
  div {
-    font-family: 'Star Jedi', arial;
+    font-family: deathStar;
+ }
+
+ h1 {
+     font-size: 500%;
  }
 
  .image_file_l,
@@ -143,5 +181,4 @@ body, html {
      position: absolute;
      bottom: -140px;
  }
- 
- 
+
