@@ -7,57 +7,132 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="test4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <title>Back to the Future!</title>
+    <link href="http://allfont.net/allfont.css?fonts=star-jedi" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <script src="game.js"></script>
+    <title>Star Wars Battle!</title>
   </head>
-  <body class="bg">
+  <body>
       <div class="container">
-          <div class="row justify-content-center mt-3">
-              <div class="col-md-12 mb-4 text-center" style="height: 100px">
-                <p><h1>Back to the Future Word Game!</h1></p>
-              </div>
+            <div id="stage" class="stage">
+                <div id="background" class="stage"></div>
+                <div id="planets" class="stage"></div>
+                <div id="x_wing" class="stage"></div>
+                <div id="surface"></div>
             </div>
-          <div class="row justify-content-center">
-              <div class="col-md-6">
-
-                    <div class="text-center" id="start_button" onclick="startGame()"><h4>Start Game!</h4></div>
-
-                    <p><h4>Turn:</h4></p>
-                    <div id="turns"></div>
-                    
-                    <p><h4>Wins:</h4></p>
-                    <div id="wins"></div>
-
-                    <p><h4>Losses:</h4></p>
-                    <div id="losses"></div>
-
-                    <div class="text-center" id="guess_area"><h5></h5></div>
-                    
-                    <div class="text-center" id="guessed_letters"></div>
-                    
-                    <div class="text-center" id="text_box"></div> 
+            
+            <div class="row">
+                <div class="col-md-6 mb-0" id="heading"><h1>Star Wars Battle!</h1></div>
+            </div>
+            <div class="row d-flex h-50">
+                <div class="col-md-4 statRow" id="stats">
+                    <div>
+                        <div id="anakin_stats_l"></div>
+                        <div id="boba_stats_l"></div>
+                        <div id="chewie_stats_l"></div>
+                        <div id="emperor_stats_l"></div>
+                        <div id="solo_stats_l"></div>
+                        <div id="jar-jar_stats_l"></div>
+                        <div id="leia_stats_l"></div>
+                        <div id="luke_stats_l"></div>
+                        <div id="vader_stats_l"></div>
+                        <div id="obi-wan_stats_l"></div>
+                        <div id="yoda_stats_l"></div>
+                        <div id="mace_stats_l"></div>
+                    </div>
                 </div>
-          </div>
-          <div class="row justify-content-center mt-3">
-              <div class="col-md-6 text-center">
-                  <img src="assets/images/middle_box_bttf.png" alt="logo" height="200" width="300">
-              </div>
-          </div>
-          <!-- <div class="row justify-content-center mt-3">
-              <div>
-                  <div class="col-md-6 text-center" id="start_button" onclick="clearAll()"><h4>Clear!</h4></div>
-              </div>
-
-          </div> -->
+                <div class="col-md-4 statRow"></div>
+                <div class="col-md-4" id="stats">
+                    <div>
+                        <div id="anakin_stats_r"></div>
+                        <div id="boba_stats_r"></div>
+                        <div id="chewie_stats_r"></div>
+                        <div id="emperor_stats_r"></div>
+                        <div id="solo_stats_r"></div>
+                        <div id="jar-jar_stats_r"></div>
+                        <div id="leia_stats_r"></div>
+                        <div id="luke_stats_r"></div>
+                        <div id="vader_stats_r"></div>
+                        <div id="obi-wan_stats_r"></div>
+                        <div id="yoda_stats_r"></div>
+                        <div id="mace_stats_r"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="cModels">
+                <div class="col-md-4" id="characterModels">
+                    <img id="anakin_image_l" class="image_file_l" src="assets/images/Characters-Left/anakin copy.png"/>
+                    <img id="boba_image_l" class="image_file_l" src="assets/images/Characters-Left/boba copy.png"/>
+                    <img id="chewie_image_l" class="image_file_l" src="assets/images/Characters-Left/chewie copy.png"/>
+                    <img id="emperor_image_l" class="image_file_l" src="assets/images/Characters-Left/emperor copy.png"/>
+                    <img id="solo_image_l" class="image_file_l" src="assets/images/Characters-Left/solo copy.png"/>
+                    <img id="jar-jar_image_l" class="image_file_l" src="assets/images/Characters-Left/jar-jar copy.png"/>
+                    <img id="leia_image_l" class="image_file_l" src="assets/images/Characters-Left/leia copy.png"/>
+                    <img id="luke_image_l" class="image_file_l" src="assets/images/Characters-Left/luke copy.png"/>
+                    <img id="vader_image_l" class="image_file_l" src="assets/images/Characters-Left/vader copy.png"/>
+                    <img id="obi-wan_image_l" class="image_file_l" src="assets/images/Characters-Left/obi-wan copy.png"/>
+                    <img id="yoda_image_l" class="image_file_l" src="assets/images/Characters-Left/yoda copy.png"/>
+                    <img id="mace_image_l" class="image_file_l" src="assets/images/Characters-Left/mace copy.png"/>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4" id="characterModels">
+                    <img id="anakin_image_r" class="image_file_r" src="assets/images/Characters-Right/anakin copy.png"/>
+                    <img id="boba_image_r" class="image_file_r" src="assets/images/Characters-Right/boba copy.png"/>
+                    <img id="chewie_image_r" class="image_file_r" src="assets/images/Characters-Right/chewie copy.png"/>
+                    <img id="emperor_image_r" class="image_file_r" src="assets/images/Characters-Right/emperor copy.png"/>
+                    <img id="solo_image_r" class="image_file_r" src="assets/images/Characters-Right/solo copy.png"/>
+                    <img id="jar-jar_image_r" class="image_file_r" src="assets/images/Characters-Right/jar-jar copy.png"/>
+                    <img id="leia_image_r" class="image_file_r" src="assets/images/Characters-Right/leia copy.png"/>
+                    <img id="luke_image_r" class="image_file_r" src="assets/images/Characters-Right/luke copy.png"/>
+                    <img id="vader_image_r" class="image_file_r" src="assets/images/Characters-Right/vader copy.png"/>
+                    <img id="obi-wan_image_r" class="image_file_r" src="assets/images/Characters-Right/obi-wan copy.png"/>
+                    <img id="yoda_image_r" class="image_file_r" src="assets/images/Characters-Right/yoda copy.png"/>
+                    <img id="mace_image_r" class="image_file_r" src="assets/images/Characters-Right/mace copy.png"/>
+                </div>
+            </div>
+            <div class="row" id="bottomRow">
+                <div class="col-md-4 d-flex flex-row flex-wrap justify-content-center" id="players">
+                    <div class="playerBox" id="anakin-l"><img src="assets/images/Characters-Left/anakin copy.png" title="Anakin Skywalker"/></div>
+                    <div class="playerBox" id="boba-l"><img src="assets/images/Characters-Left/boba copy.png" title="Boba Fett"/></div>
+                    <div class="playerBox" id="chewie-l"><img src="assets/images/Characters-Left/chewie copy.png" title="Chewbacca"/></div>
+                    <div class="playerBox" id="emperor-l"><img src="assets/images/Characters-Left/emperor copy.png" title="The Emperor"/></div>
+                    <div class="playerBox" id="solo-l"><img src="assets/images/Characters-Left/solo copy.png" title="Han Solo"/></div>
+                    <div class="playerBox" id="jar-jar-l"><img src="assets/images/Characters-Left/jar-jar copy.png" title="Jar-Jar Binks"/></div>
+                    <div class="playerBox" id="leia-l"><img src="assets/images/Characters-Left/leia copy.png" title="Princess Leia"/></div>
+                    <div class="playerBox" id="luke-l"><img src="assets/images/Characters-Left/luke copy.png" title="Luke Skywalker"/></div>
+                    <div class="playerBox" id="vader-l"><img src="assets/images/Characters-Left/vader copy.png" title="Darth Vader"/></div>
+                    <div class="playerBox" id="obi-wan-l"><img src="assets/images/Characters-Left/obi-wan copy.png" title="Obi-Wan Kenobi"/></div>
+                    <div class="playerBox" id="yoda-l"><img src="assets/images/Characters-Left/yoda copy.png" title="Master Yoda"/></div>
+                    <div class="playerBox" id="mace-l"><img src="assets/images/Characters-Left/mace copy.png" title="Mace Windu"/></div>
+                </div>
+                <div class="col-md-4 d-flex flex-column flex-wrap">
+                    <div id="attackButton"><button type="button" class="btn btn-outline-light btn-block">Attack!</button></div>
+                    <div id="newgameButton"><button type="button" class="btn btn-outline-light btn-block">New Game</button></div>
+                </div>
+                <div class="col-md-4 d-flex flex-row flex-wrap justify-content-center" id="players">
+                    <div class="playerBox" id="mace-r"><img src="assets/images/Characters-Right/mace copy.png" title="Mace Windu"/></div>
+                    <div class="playerBox" id="yoda-r"><img src="assets/images/Characters-Right/yoda copy.png" title="Master Yoda"/></div>
+                    <div class="playerBox" id="obi-wan-r"><img src="assets/images/Characters-Right/obi-wan copy.png" title="Obi-Wan Kenobi"/></div>
+                    <div class="playerBox" id="vader-r"><img src="assets/images/Characters-Right/vader copy.png" title="Darth Vader"/></div>
+                    <div class="playerBox" id="luke-r"><img src="assets/images/Characters-Right/luke copy.png" title="Luke Skywalker"/></div>
+                    <div class="playerBox" id="leia-r"><img src="assets/images/Characters-Right/leia copy.png" title="Princess Leia"/></div>
+                    <div class="playerBox" id="jar-jar-r"><img src="assets/images/Characters-Right/jar-jar copy.png" title="Jar-Jar Binks"/></div>
+                    <div class="playerBox" id="solo-r"><img src="assets/images/Characters-Right/solo copy.png" title="Han Solo"/></div>
+                    <div class="playerBox" id="emperor-r"><img src="assets/images/Characters-Right/emperor copy.png" title="The Emperor"/></div>
+                    <div class="playerBox" id="chewie-r"><img src="assets/images/Characters-Right/chewie copy.png" title="Chewbacca"/></div>
+                    <div class="playerBox" id="boba-r"><img src="assets/images/Characters-Right/boba copy.png" title="Boba Fett"/></div>
+                    <div class="playerBox" id="anakin-r"><img src="assets/images/Characters-Right/anakin copy.png" title="Anakin Skywalker"/></div>
+                </div>
+            </div>
         </div>
-        
+    
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.spritely/0.6.8/jquery.spritely.js"></script>
   </body>
 </html>

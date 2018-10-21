@@ -1,0 +1,183 @@
+@font-face {
+    font-family: starJediSE;
+    src: url("fonts/StarJedi Special Edition.ttf");
+}
+@font-face {
+    font-family: deathStar;
+    src: url("fonts/Death Star.otf");
+}
+
+@keyframes attackLeft {
+    0%   {right: 0px;}
+    50%  {right: 250px;}
+    100% {right: 0px;}
+}
+
+@keyframes attackRight {
+    0%   {left: 0px;}
+    50%  {left: 250px;}
+    100% {left: 0px;}
+}
+
+#stage {
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#background {
+    background: url("../images/Backgrounds/space_background.png") 0 0 repeat-x;
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+#planets {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    background: url("../images/Backgrounds/planets2-01.png") repeat-x;
+    top: 20px;
+
+}
+
+#x_wing {
+   background: url("../images/Backgrounds/x_wing_image6-01.png");
+   z-index: 2000;
+   position: absolute;
+   top: 200px;
+   background-repeat: repeat-x; 
+   background-size: 2000px 200px;
+   width: 100%;
+
+}
+
+
+body, html {
+    height: 100%;
+}
+#surface {
+    background: url("../images/Backgrounds/moon_surface.png");
+    background-repeat: no-repeat;
+    height: 36%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    zoom: 2;
+
+}
+
+#heading,
+#stats,
+#characterModels,
+#players,
+#attackButton,
+#newgameButton {
+    z-index: 2000;
+    color: gold;
+}
+
+#anakin_stats_l,
+#anakin_stats_r {
+    z-index: 8000;
+}
+
+ #heading {
+    font-family: 'Star Jedi', arial;
+ }
+
+ #stats {
+    white-space: pre;
+ }
+
+ #characterModels {
+    font-size: 25px;
+    font-family: deathStar;
+ }
+
+ #players {
+
+ }
+
+ #fight_message {
+    font-size: 75%;
+    color: white;
+    height: 100%;
+    z-index: 3000;
+    position: relative;
+    bottom: -160px
+    
+ }
+
+ #attackButton {
+    height: 50%;
+    z-index: 4000;
+ }
+
+ #newgameButton {
+    height: 50%;
+    z-index: 4000;
+ }
+ #cModels {
+    height: 400px;
+    width: 100%;
+    z-index: 3000;
+ }
+
+ #bottomRow {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    z-index: 6000;
+ }
+
+ .playerBox {
+    height: 60px;
+    width: 60px;
+ }
+ .playerBox img {
+    height: 60px;
+    width: 60px;
+ }
+
+ .playerBox:hover {
+     outline: 1px solid gold;
+ }
+
+ div {
+    font-family: deathStar;
+ }
+
+ h1 {
+     font-size: 500%;
+ }
+
+ .image_file_l,
+ .image_file_r {
+     display: none;
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     bottom: -160px;
+     z-index: 3000;
+ }
+
+ #boba_image_l,
+ #boba_image_r,
+ #luke_image_l,
+ #luke_image_r {
+     position: absolute;
+     bottom: -140px;
+ }
+
