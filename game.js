@@ -50,6 +50,7 @@ function player1(clicked_id){
 
 function player2(clicked_id){
     cpuChar = characters[clicked_id];
+    console.log(cpuChar);
 };
 
 var playerChar;
@@ -72,6 +73,7 @@ $("#attackButton").on("click", function(){
         checkGame(playerChar, cpuChar);    
     }
     else {
+        console.log(cpuChar);
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         console.log(playerChar.stat_id_left);
@@ -86,24 +88,24 @@ $("#attackButton").on("click", function(){
     }
 });
 
-function checkGame(playerChar, cpuChar){
-    if (playerChar.left_hp <= 0){
+function checkGame(player, cpu){
+    if (player.left_hp <= 0){
         $(".image_file_l").hide();
         $("#fight_message").text("You Lose!");
+        return;
     }
-    if (cpuChar.right_hp <=0 && enemyCount === 4){
+    if (cpu.right_hp <=0 && enemyCount === 4){
+        $(".image_file_r").hide();
         $("#fight_message").text("You Win!");
         return;
     }
-    if (cpuChar.right_hp <= 0 && enemyCount < 4){
+    if (cpu.right_hp <= 0 && enemyCount < 4){
         enemyCount++;
-        console.log(Math.floor(Math.random() * 12));
-        console.log(enemyCount);
         var keys = (Object.keys(characters));
         $(".image_file_r").hide();
         cpuChar = characters[keys[Math.floor(Math.random() * 12)]];
         console.log(cpuChar);
-        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.left_hp + "HP");
+        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
         $("#" + cpuChar.stat_id_right).show();
         $("#" + cpuChar.img_id_r).show(); 
         return;       
@@ -325,6 +327,7 @@ var characters = {
     leial:leia,
     leiar:leia,
     lukel:luke,
+    luker:luke,
     vaderl:vader,
     vaderr:vader,
     obiwanl:obi_wan,
