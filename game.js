@@ -60,15 +60,15 @@ $("#attackButton").on("click", function(){
     if (playerChar === jar_jar){
         for (var i = 0; i <= 4; i++){
             cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
-            playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
-            $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
-            $(playerChar.stat_id_left).show();
-            $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
-            var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
-            var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
-            $("#fight_message").prepend(message1, message2);
-            playerChar.attack_power = playerChar.attack_power + playerChar.attack_power; 
         };
+        playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
+        $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
+        $(playerChar.stat_id_left).show();
+        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
+        var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
+        $("#fight_message").prepend(message1, message2);
+        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
         checkGame(playerChar, cpuChar);    
     }
     else {
@@ -345,7 +345,9 @@ $(document).ready(function () {
         $(".image_file_l").hide();
         $('#anakin_image_l').show();
         $("#anakin_stats_l").text(anakin.name + " " + anakin.left_hp + "HP");
-        $("#anakin_stats_l").show();     
+        $("#anakin_stats_l").show();
+        var audio = new Audio("assets/sounds/Anakin Fun begins.mp3");
+        audio.play();     
     });
     $('#bobal').click(function(){
         $(".image_file_l").hide();
@@ -384,6 +386,8 @@ $(document).ready(function () {
         $('#jar-jar_image_l').show();
         $("#jar-jar_stats_l").text(jar_jar.name + " " + jar_jar.left_hp + "HP");
         $("#jar-jar_stats_l").show();
+        var audio = new Audio("assets/sounds/jarjar_looky.wav");
+        audio.play();
     });
     $('#leial').click(function(){
         $(".image_file_l").hide();
@@ -398,6 +402,8 @@ $(document).ready(function () {
         $('#luke_image_l').show();
         $("#luke_stats_l").text(luke.name + " " + luke.left_hp + "HP");
         $("#luke_stats_l").show();
+        var audio = new Audio("assets/sounds/luke_never_turn.wav");
+        audio.play();
     });
     $('#vaderl').click(function(){
         $(".image_file_l").hide();
@@ -412,6 +418,8 @@ $(document).ready(function () {
         $('#obi-wan_image_l').show();
         $("#obi-wan_stats_l").text(obi_wan.name + " " + obi_wan.left_hp + "HP");
         $("#obi-wan_stats_l").show();
+        var audio = new Audio("assets/sounds/obi_wan_dangerous.wav");
+        audio.play();
     });
     $('#yodal').click(function(){
         $(".image_file_l").hide();
@@ -426,12 +434,16 @@ $(document).ready(function () {
         $('#mace_image_l').show();
         $("#mace_stats_l").text(mace.name + " " + mace.left_hp + "HP");
         $("#mace_stats_l").show();
+        var audio = new Audio("assets/sounds/windu_realize.wav");
+        audio.play();
     });
     $('#anakinr').click(function(){
         $(".image_file_r").hide();
         $('#anakin_image_r').show();
         $("#anakin_stats_r").text(anakin.name + " " + anakin.right_hp + "HP");
         $("#anakin_stats_r").show();
+        var audio = new Audio("assets/sounds/Anakin Fun begins.mp3");
+        audio.play();
     });
     $('#bobar').click(function(){
         $(".image_file_r").hide();
@@ -470,6 +482,8 @@ $(document).ready(function () {
         $('#jar-jar_image_r').show();
         $("#jar-jar_stats_r").text(jar_jar.name + " " + jar_jar.right_hp + "HP");
         $("#jar-jar_stats_r").show();
+        var audio = new Audio("assets/sounds/jarjar_looky.wav");
+        audio.play();
     });
     $('#leiar').click(function(){
         $(".image_file_r").hide();
@@ -484,6 +498,8 @@ $(document).ready(function () {
         $('#luke_image_r').show();
         $("#luke_stats_r").text(luke.name + " " + luke.right_hp + "HP");
         $("#luke_stats_r").show();
+        var audio = new Audio("assets/sounds/luke_never_turn.wav");
+        audio.play();
     });
     $('#vaderr').click(function(){
         $(".image_file_r").hide();
@@ -498,6 +514,8 @@ $(document).ready(function () {
         $('#obi-wan_image_r').show();
         $("#obi-wan_stats_r").text(obi_wan.name + " " + obi_wan.right_hp + "HP");
         $("#obi-wan_stats_r").show();
+        var audio = new Audio("assets/sounds/obi_wan_dangerous.wav");
+        audio.play();
     });
     $('#yodar').click(function(){
         $(".image_file_r").hide();
@@ -512,6 +530,8 @@ $(document).ready(function () {
         $('#mace_image_r').show();
         $("#mace_stats_r").text(mace.name + " " + mace.right_hp + "HP");
         $("#mace_stats_r").show();
+        var audio = new Audio("assets/sounds/windu_realize.wav");
+        audio.play();
     });
     
 });    
