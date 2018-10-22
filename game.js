@@ -60,15 +60,15 @@ $("#attackButton").on("click", function(){
     if (playerChar === jar_jar){
         for (var i = 0; i <= 4; i++){
             cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
-            $("#anakin_stats_l").text(playerChar.name + " " + playerChar.left_hp + "HP");
-            $("#anakin_stats_l").show();
-            $("#fight_message").text(playerChar.name + "was hit for " + cpuChar.counter_attack + " points of damage!");
-            $("#fight_message").text(cpuChar.name + "was hit for " + playerChar.attack_power + " points of damage!");
-            $("#anakin_stats_r").text(cpuChar.name + " " + cpuChar.right_hp + "HP");
-            $("#anakin_stats_r").show(); 
+            playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
+            $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
+            $(playerChar.stat_id_left).show();
+            $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+            var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
+            var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
+            $("#fight_message").prepend(message1, message2);
             playerChar.attack_power = playerChar.attack_power + playerChar.attack_power; 
         };
-        playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         checkGame(playerChar, cpuChar);    
     }
     else {
@@ -78,10 +78,9 @@ $("#attackButton").on("click", function(){
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
-        // $("#anakin_stats_r").show();
         var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
-        $("#fight_message").append(message1, message2);
+        $("#fight_message").prepend(message1, message2);
         playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
         checkGame(playerChar, cpuChar);
     }
@@ -110,6 +109,10 @@ function checkGame(playerChar, cpuChar){
         return;       
     } 
 }
+
+$("#newgameButton").on("click", function(){
+    window.location.reload(true);
+})
 
 var anakin = {
     name: "Anakin Skywalker",
@@ -349,24 +352,32 @@ $(document).ready(function () {
         $('#boba_image_l').show();
         $("#boba_stats_l").text(boba.name + " " + boba.left_hp + "HP");
         $("#boba_stats_l").show();
+        var audio = new Audio("assets/sounds/ASYUWISH.WAV");
+        audio.play();
     });
     $('#chewiel').click(function(){
         $(".image_file_l").hide();
         $('#chewie_image_l').show();
         $("#chewie_stats_l").text(chewie.name + " " + chewie.left_hp + "HP");
         $("#chewie_stats_l").show();
+        var audio = new Audio("assets/sounds/Chewbacca roar.mp3");
+        audio.play();   
     });
     $('#emperorl').click(function(){
         $(".image_file_l").hide();
         $('#emperor_image_l').show();
         $("#emperor_stats_l").text(emperor.name + " " + emperor.left_hp + "HP");
         $("#emperor_stats_l").show();
+        var audio = new Audio("assets/sounds/Power of the dark side.mp3");
+        audio.play();
     });
     $('#solol').click(function(){
         $(".image_file_l").hide();
         $('#solo_image_l').show();
         $("#solo_stats_l").text(solo.name + " " + solo.left_hp + "HP");
         $("#solo_stats_l").show();
+        var audio = new Audio("assets/sounds/Im captain of the Millenium Falcon.mp3");
+        audio.play();
     });
     $('#jarjarl').click(function(){
         $(".image_file_l").hide();
@@ -379,6 +390,8 @@ $(document).ready(function () {
         $('#leia_image_l').show();
         $("#leia_stats_l").text(leia.name + " " + leia.left_hp + "HP");
         $("#leia_stats_l").show();
+        var audio = new Audio("assets/sounds/HELP.WAV");
+        audio.play();
     });
     $('#lukel').click(function(){
         $(".image_file_l").hide();
@@ -391,6 +404,8 @@ $(document).ready(function () {
         $('#vader_image_l').show();
         $("#vader_stats_l").text(vader.name + " " + vader.left_hp + "HP");
         $("#vader_stats_l").show();
+        var audio = new Audio("assets/sounds/swvader02.mp3");
+        audio.play();
     });
     $('#obiwanl').click(function(){
         $(".image_file_l").hide();
@@ -403,6 +418,8 @@ $(document).ready(function () {
         $('#yoda_image_l').show();
         $("#yoda_stats_l").text(yoda.name + " " + yoda.left_hp + "HP");
         $("#yoda_stats_l").show();
+        var audio = new Audio("assets/sounds/Strong with the force.mp3");
+        audio.play();
     });
     $('#macel').click(function(){
         $(".image_file_l").hide();
@@ -421,24 +438,32 @@ $(document).ready(function () {
         $('#boba_image_r').show();
         $("#boba_stats_r").text(boba.name + " " + boba.right_hp + "HP");
         $("#boba_stats_r").show();
+        var audio = new Audio("assets/sounds/ASYUWISH.WAV");
+        audio.play();
     });
     $('#chewier').click(function(){
         $(".image_file_r").hide();
         $('#chewie_image_r').show();
         $("#chewie_stats_r").text(chewie.name + " " + chewie.right_hp + "HP");
         $("#chewie_stats_r").show();
+        var audio = new Audio("assets/sounds/Chewbacca roar.mp3");
+        audio.play();
     });
     $('#emperorr').click(function(){
         $(".image_file_r").hide();
         $('#emperor_image_r').show();
         $("#emperor_stats_r").text(emperor.name + " " + emperor.right_hp + "HP");
         $("#emperor_stats_r").show();
+        var audio = new Audio("assets/sounds/Power of the dark side.mp3");
+        audio.play();
     });
     $('#solor').click(function(){
         $(".image_file_r").hide();
         $('#solo_image_r').show();
         $("#solo_stats_r").text(solo.name + " " + solo.right_hp + "HP");
         $("#solo_stats_r").show();
+        var audio = new Audio("assets/sounds/Im captain of the Millenium Falcon.mp3");
+        audio.play();
     });
     $('#jarjarr').click(function(){
         $(".image_file_r").hide();
@@ -451,6 +476,8 @@ $(document).ready(function () {
         $('#leia_image_r').show();
         $("#leia_stats_r").text(leia.name + " " + leia.right_hp + "HP");
         $("#leia_stats_r").show();
+        var audio = new Audio("assets/sounds/HELP.WAV");
+        audio.play();
     });
     $('#luker').click(function(){
         $(".image_file_r").hide();
@@ -463,6 +490,8 @@ $(document).ready(function () {
         $('#vader_image_r').show();
         $("#vader_stats_r").text(vader.name + " " + vader.right_hp + "HP");
         $("#vader_stats_r").show();
+        var audio = new Audio("assets/sounds/swvader02.mp3");
+        audio.play();
     });
     $('#obiwanr').click(function(){
         $(".image_file_r").hide();
@@ -475,6 +504,8 @@ $(document).ready(function () {
         $('#yoda_image_r').show();
         $("#yoda_stats_r").text(yoda.name + " " + yoda.right_hp + "HP");
         $("#yoda_stats_r").show();
+        var audio = new Audio("assets/sounds/Strong with the force.mp3");
+        audio.play();   
     });
     $('#macer').click(function(){
         $(".image_file_r").hide();
