@@ -1,49 +1,3 @@
-/* Star Wars!
-- Start with empty battlefield. Once char is selected they will populate playing area 
-- Will need random number generator for attack power
-- Variables for HP that will subtract value of attack power and display current value
-- When attack power is generated, subtract number from HP
-- List characters facing one direction as player character and list characters
-facing other direction as second list. May be able to add code that, depending
-on who player picks, will make second char face other direction.
-- Spritely seems pretty straightforward - research how to make sprite move slightly 
-forward when they attack. Right now, moving background seems doable
-- Possibly have random background with same movement effects! Space, Tattooine, Death Star
-- May need to look into delay between pressing attack and charcter movement
-- Will also need to look into transparency and z index for playing field. Will possibly need
-high z index for player char. 
-- Possibly look into transitions for players entering battlefield
-- For Bootstrap, will likely need row/div with background, probably half page. As well as div
-with title of game, followed by row with 2 columns with char Name and HP and player models, then row with remaining, not-chosen char, 
-last row with two columns with attack buttons.
-- Most likely will create objects for each character
-    - Name
-    - HP
-    - Attack Power Range - Random number generator with attack strength based on power
-    - Maybe block chance - Possibly every odd number rolled will be a block
-    - Image
-Anakin - 250HP Power: 25 - 50
-Vader - 285HP Power: 30 - 60
-Luke - 225HP Power: 20 - 40
-Obi-Wan - 230HP Power: 20 - 40
-Yoda - 290HP Power: 35 - 70
-Emperor - 300HP Power: 35 - 70
-Grievous - 190HP Power: 15 - 30
-Mace - 270HP Power: 28 - 56
-Boba - 170HP Power: 10 - 20
-Chewie - 170HP Power: 10 - 20
-Solo - 150HP Power: 8 - 16
-Leia - 190HP Power: 15 - 30
-Padme - 120HP Power: 5 - 10
-Jar-Jar - 100HP Power: 2 - 100
-Qui-Gon - 225HP Power: 18-36
-Functions:
-Start Game - sets up field of play, displays characters, their HP and a background
-Play Game - Lets player choose character and ememy. Ease char onto playing field
-Fight Game - Attack button functionality, movement of characters in response to attack button 
-and random selection of attack power. 
-End Game - If HP after attack <= 0, char dies. */
-
 function player1(clicked_id){
     playerChar = characters[clicked_id];
 };
@@ -56,46 +10,48 @@ var playerChar;
 var cpuChar; 
 var enemyCount = 0;
 
+// Game logic. Each character takes turns attacking
 $("#attackButton").on("click", function(){
+    // Special condition for Jar-Jar. Attacks 4 times in succession
     if (playerChar === jar_jar){
         for (var i = 0; i <= 4; i++){
             cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
+            $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+            $(cpuChar.stat_id_left).show();
+            // Check for winner after attack
+            checkGame(playerChar, cpuChar);
         };
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
-        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        // Check for winner after attack
+        checkGame(playerChar, cpuChar);
         var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
         $("#fight_message").prepend(message1, message2);
-        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
-        checkGame(playerChar, cpuChar);    
+        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;    
     }
     else {
+        // Conditions for remaining characters
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
+        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        $(cpuChar.stat_id_left).show();
+        // Check for winner after attack
+        checkGame(playerChar, cpuChar);
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
-        $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
+        // Check for winner after attack
+        checkGame(playerChar, cpuChar);
         var message1 = $("<p><p>").text(playerChar.name + " was hit for " + cpuChar.counter_attack + " points of damage!");
         var message2 = $("<p><p>").text(cpuChar.name + " was hit for " + playerChar.attack_power + " points of damage!");
         $("#fight_message").prepend(message1, message2);
-        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;
-        checkGame(playerChar, cpuChar);
+        playerChar.attack_power = playerChar.attack_power + playerChar.attack_power;  
     }
 });
 
+// Function checks for winner
 function checkGame(player, cpu){
-    if (player.left_hp <= 0){
-        $(".image_file_l").hide();
-        $("#fight_message").text("You Lose!");
-        return;
-    }
-    if (cpu.right_hp <=0 && enemyCount === 4){
-        $(".image_file_r").hide();
-        $("#fight_message").text("You Win!");
-        return;
-    }
     if (cpu.right_hp <= 0 && enemyCount < 4){
         enemyCount++;
         var keys = (Object.keys(characters));
@@ -106,12 +62,31 @@ function checkGame(player, cpu){
         $("#" + cpuChar.img_id_r).show(); 
         return;       
     } 
+    else if (player.left_hp <= 0){
+        $(".image_file_l").hide();
+        $("#fight_message").text("You Lose!");
+        $("#attackButton").click(function(){
+            $("#attackButton").off("click");
+        });
+        return;
+    }
+    else if (cpu.right_hp <=0 && enemyCount === 4){
+        $(".image_file_r").hide();
+        $("#fight_message").text("You Win!");
+        $("#attackButton").click(function(){
+            $("#attackButton").off("click");
+        });
+        return;
+    }
+    
 }
 
+// New Game button function
 $("#newgameButton").on("click", function(){
     window.location.reload(true);
 })
 
+// Character objects
 var anakin = {
     name: "Anakin Skywalker",
     left_hp: 250,
@@ -334,6 +309,8 @@ var characters = {
     macer:mace
 }
 
+
+// Background and icon functions
 $(document).ready(function () { 
 
     $("#planets").pan({fps: 25, speed: 2, dir: "left"});
