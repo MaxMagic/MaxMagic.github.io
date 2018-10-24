@@ -50,7 +50,6 @@ function player1(clicked_id){
 
 function player2(clicked_id){
     cpuChar = characters[clicked_id];
-    console.log(cpuChar);
 };
 
 var playerChar;
@@ -73,10 +72,8 @@ $("#attackButton").on("click", function(){
         checkGame(playerChar, cpuChar);    
     }
     else {
-        console.log(cpuChar);
         cpuChar.right_hp = cpuChar.right_hp - playerChar.attack_power;
         playerChar.left_hp = playerChar.left_hp - cpuChar.counter_attack;
-        console.log(playerChar.stat_id_left);
         $("#" + playerChar.stat_id_left).text(playerChar.name + " " + playerChar.left_hp + "HP");
         $(playerChar.stat_id_left).show();
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
@@ -104,7 +101,6 @@ function checkGame(player, cpu){
         var keys = (Object.keys(characters));
         $(".image_file_r").hide();
         cpuChar = characters[keys[Math.floor(Math.random() * 12)]];
-        console.log(cpuChar);
         $("#" + cpuChar.stat_id_right).text(cpuChar.name + " " + cpuChar.right_hp + "HP");
         $("#" + cpuChar.stat_id_right).show();
         $("#" + cpuChar.img_id_r).show(); 
@@ -538,21 +534,3 @@ $(document).ready(function () {
     });
     
 });    
-
-    // $("#attackButton").click(function(){
-    //     $("#anakin_image_l").animate({left: "+=250px"}, "fast", function(){
-    //         $("#anakin_image_l").animate({right: "0px"}, "fast");
-    //     });
-
-    // $("#attackButton").on('click', function(){
-    //     $("#anakin_image_l").addClass('attackLeft');
-    // });
-    
-
-//     $("#btn1").click(function(){
-//         $("#box").animate({height: "300px"});
-//     });
-//     $("#btn2").click(function(){
-//         $("#box").animate({height: "100px"});
-//     });
-// });
